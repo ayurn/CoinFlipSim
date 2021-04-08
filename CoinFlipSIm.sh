@@ -1,12 +1,11 @@
-#!/bin/bash -x
+#!/bin/bash 
 echo "Welcome to Flip Coin Simulation Program"
 
 tails=0;
 heads=0;
 
-read -p "Enter how many times to flip coin: " n
-
-for (( i=0 ; i<$n ; i++  ))
+i=0;
+while [ $tails -lt 21 -a $heads -lt 21 ]
 do 
 
 	TossCheck=$((RANDOM%2));
@@ -21,7 +20,14 @@ do
 
 done
 
-echo "Number of times Tails won: "$tails
+echo "Tails count: "$tails "and Heads count :"$heads;
 
-echo "Number of times Heads won: "$heads
+if [ $heads -gt $tails ]
+then
+	echo "Heads won by: "$(( $heads-$tails ));
+
+else
+	echo "Tails won by: "$(( $tails-$heads ));
+
+fi
 
